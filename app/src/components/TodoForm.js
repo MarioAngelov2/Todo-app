@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 
-function TodoForm() {
+function TodoForm({ onSubmitHandler }) {
   const [input, setInput] = useState("");
 
   const handleChange = (ev) => {
@@ -11,6 +11,12 @@ function TodoForm() {
   const onSubmit = (ev) => {
     ev.preventDefault();
 
+    //generate random id up to 10000
+    onSubmitHandler({
+      id: Math.floor(Math.random() * 10000),
+      text: input
+    })
+    
     setInput("");
   };
 
