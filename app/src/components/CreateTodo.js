@@ -1,12 +1,13 @@
 import React from "react";
 import { useState } from "react";
 
-function CreateTodo() {
+function CreateTodo({ taskCreateHandler }) {
   const [task, setTask] = useState("");
 
   const onSubmit = (e) => {
     e.preventDefault();
 
+    taskCreateHandler(task);
     setTask("");
   };
 
@@ -15,18 +16,16 @@ function CreateTodo() {
   };
 
   return (
-    <div>
-      <form className="create-todo" onSubmit={onSubmit}>
-        <input
-          type="text"
-          name="todoName"
-          placeholder="Enter text..."
-          value={task}
-          onChange={onChange}
-        />
-        <button type="submit">Add</button>
-      </form>
-    </div>
+    <form className="create-todo" onSubmit={onSubmit}>
+      <input
+        type="text"
+        name="todoName"
+        value={task}
+        onChange={onChange}
+        placeholder="Enter text..."
+      />
+      <button type="submit">Add</button>
+    </form>
   );
 }
 

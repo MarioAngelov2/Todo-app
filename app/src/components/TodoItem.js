@@ -1,13 +1,11 @@
-import React from 'react'
+import React from "react";
 
-function TodoItem() {
+function TodoItem({ title }) {
   return (
-    <div>
       <li>
-        
+        {title}
       </li>
-    </div>
-  )
+  );
 }
 
-export default TodoItem
+export default TodoItem;
