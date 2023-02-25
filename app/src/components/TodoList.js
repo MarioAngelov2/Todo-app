@@ -5,7 +5,7 @@ function TodoList({ tasks }) {
   return (
     <ul>
       {tasks.map((x) => {
-        return <TodoItem key={x._id} todoId={x._id} title={x.title} />;
+        return <TodoItem key={x._id} todo={x}/>;
       })}
     </ul>
   );
