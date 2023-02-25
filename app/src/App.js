@@ -12,7 +12,7 @@ function App() {
     []
   );
 
-  const { createTodo } = useTodosApi();
+  const { createTodo, deleteTodo } = useTodosApi();
 
   const taskCreateHandler = (newTodo) => {
     createTodo(newTodo).then((title) => {
@@ -20,13 +20,19 @@ function App() {
     });
   };
 
+  const taskDeleteHandler = (todoId) => {
+    deleteTodo(todoId).then(() => {
+      setTasks((state) => state.filter((x) => x._id != todoId))
+    })
+  }
+
   return (
     <div className="App">
       <header>
         <h1>TODO App</h1>
       </header>
       <main>
-        <TodoList tasks={tasks} />
+        <TodoList tasks={tasks} taskDeleteHandler={taskDeleteHandler}/>
         <CreateTodo taskCreateHandler={taskCreateHandler} />
       </main>
     </div>
