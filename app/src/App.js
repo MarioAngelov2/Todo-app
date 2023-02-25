@@ -1,5 +1,7 @@
 import "./App.css";
 
+import { TodoContext } from "./context/TodoContext";
+
 import useTodosApi from "./hooks/useTodosApi";
 import useFetch from "./hooks/useFetch";
 
@@ -22,20 +24,22 @@ function App() {
 
   const taskDeleteHandler = (todoId) => {
     deleteTodo(todoId).then(() => {
-      setTasks((state) => state.filter((x) => x._id != todoId))
-    })
-  }
+      setTasks((state) => state.filter((x) => x._id != todoId));
+    });
+  };
 
   return (
-    <div className="App">
-      <header>
-        <h1>TODO App</h1>
-      </header>
-      <main>
-        <TodoList tasks={tasks} taskDeleteHandler={taskDeleteHandler}/>
-        <CreateTodo taskCreateHandler={taskCreateHandler} />
-      </main>
-    </div>
+    <TodoContext.Provider value={{ taskDeleteHandler }}>
+      <div className="App">
+        <header>
+          <h1>TODO App</h1>
+        </header>
+        <main>
+          <TodoList tasks={tasks} />
+          <CreateTodo taskCreateHandler={taskCreateHandler} />
+        </main>
+      </div>
+    </TodoContext.Provider>
   );
 }
 

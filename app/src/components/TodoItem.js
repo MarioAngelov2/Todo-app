@@ -1,11 +1,15 @@
 import React from "react";
+import { useContext } from "react";
+import { TodoContext } from "../context/TodoContext";
 
-function TodoItem({ title, taskDeleteHandler, todoId }) {
+function TodoItem({ title, todoId }) {
+  const { taskDeleteHandler } = useContext(TodoContext);
+
   return (
-      <li>
-        {title}
-        <button onClick={() => taskDeleteHandler(todoId)}>x</button>
-      </li>
+    <li>
+      {title}
+      <button onClick={() => taskDeleteHandler(todoId)}>x</button>
+    </li>
   );
 }
 
