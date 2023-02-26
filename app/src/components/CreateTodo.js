@@ -1,6 +1,8 @@
 import React from "react";
 import { useState } from "react";
 
+import '../style/CreateTodo.css'
+
 function CreateTodo({ taskCreateHandler }) {
   const [task, setTask] = useState("");
 

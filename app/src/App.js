@@ -28,8 +28,16 @@ function App() {
     });
   };
 
+  const toggleTodo = async (taskId) => {
+    setTasks((state) =>
+      state.map((x) =>
+        x._id === taskId ? { ...x, isCompleted: !x.isCompleted } : x
+      )
+    );
+  };
+
   return (
-    <TodoContext.Provider value={{ taskDeleteHandler }}>
+    <TodoContext.Provider value={{ taskDeleteHandler, toggleTodo }}>
       <div className="App">
         <header>
           <h1>TODO App</h1>
