@@ -43,8 +43,8 @@ function App() {
           <h1>GET IT DONE</h1>
         </header>
         <main>
-          <TodoList tasks={tasks} />
           <CreateTodo taskCreateHandler={taskCreateHandler} />
+          <TodoList tasks={tasks} />
         </main>
       </div>
     </TodoContext.Provider>
