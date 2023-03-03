@@ -1,6 +1,7 @@
 import React from "react";
 import { useContext } from "react";
 import { TodoContext } from "../context/TodoContext";
+import DateTime from "./DateTime";
 
 import { TiDeleteOutline } from "react-icons/ti";
 import { IconContext } from "react-icons";
@@ -15,8 +16,9 @@ function TodoItem({ todo }) {
       <span
         className={todo.isCompleted ? styles.completed : ""}
         onClick={() => toggleTodo(todo._id)}
-      >
+        >
         {todo.title}
+        <DateTime />
       </span>
       <TiDeleteOutline onClick={() => taskDeleteHandler(todo._id)} />
     </li>
