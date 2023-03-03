@@ -1,8 +1,25 @@
 li {
   cursor: pointer;
+  text-decoration: none;
+  font-size: 26px;
+  list-style: none;
+  justify-content: center;
+  align-items: center;
+  user-select: none;
 }
 
 .completed {
   text-decoration: line-through;
+  color: rgb(255, 255, 255);
   user-select: none;
+}
+
+li button {
+  margin-left: 10px;
+}
+
+.react-icons {
+  color: white;
+  background-color: white;
+  width: 200px;
 }

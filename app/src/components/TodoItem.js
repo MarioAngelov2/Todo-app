@@ -2,6 +2,7 @@ import React from "react";
 import { useContext } from "react";
 import { TodoContext } from "../context/TodoContext";
 
+import { TiDeleteOutline } from "react-icons/ti";
 import styles from "../components/TodoItem.module.css";
 
 function TodoItem({ todo }) {
@@ -15,7 +16,7 @@ function TodoItem({ todo }) {
       >
         {todo.title}
       </span>
-      <button onClick={() => taskDeleteHandler(todo._id)}>x</button>
+      <TiDeleteOutline className="deleteIcon" onClick={() => taskDeleteHandler(todo._id)} />
     </li>
   );
 }

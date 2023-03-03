@@ -40,7 +40,7 @@ function App() {
     <TodoContext.Provider value={{ taskDeleteHandler, toggleTodo }}>
       <div className="App">
         <header>
-          <h1>TODO App</h1>
+          <h1>GET IT DONE</h1>
         </header>
         <main>
           <TodoList tasks={tasks} />

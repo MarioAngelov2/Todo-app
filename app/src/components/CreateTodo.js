@@ -18,6 +18,7 @@ function CreateTodo({ taskCreateHandler }) {
   };
 
   return (
+    <div className="todo-container">
     <form className="create-todo" onSubmit={onSubmit}>
       <input
         type="text"
@@ -28,6 +29,7 @@ function CreateTodo({ taskCreateHandler }) {
       />
       <button type="submit">Add</button>
     </form>
+    </div>
   );
 }
 
