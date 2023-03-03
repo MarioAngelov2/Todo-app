@@ -3,12 +3,14 @@ import { useContext } from "react";
 import { TodoContext } from "../context/TodoContext";
 
 import { TiDeleteOutline } from "react-icons/ti";
+import { IconContext } from "react-icons";
 import styles from "../components/TodoItem.module.css";
 
 function TodoItem({ todo }) {
   const { taskDeleteHandler, toggleTodo } = useContext(TodoContext);
 
   return (
+    <IconContext.Provider value={{size: '30px'}}>
     <li>
       <span
         className={todo.isCompleted ? styles.completed : ""}
@@ -16,8 +18,9 @@ function TodoItem({ todo }) {
       >
         {todo.title}
       </span>
-      <TiDeleteOutline className="deleteIcon" onClick={() => taskDeleteHandler(todo._id)} />
+      <TiDeleteOutline onClick={() => taskDeleteHandler(todo._id)} />
     </li>
+    </IconContext.Provider>
   );
 }
 
