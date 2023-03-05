@@ -1,5 +1,6 @@
 import React from 'react'
 import { useState } from 'react'
+import '../components/DateTime.module.css'
 
 function DateTime() {
 
@@ -7,9 +8,8 @@ function DateTime() {
   const [currentTime, setCurrentTime] = useState(new Date().toLocaleTimeString());
 
 
-
   return (
-    <p>
+    <p className='date-time'>
       {currentDate} {currentTime}
     </p>
   )

@@ -18,10 +18,10 @@ function TodoItem({ todo }) {
         onClick={() => toggleTodo(todo._id)}
         >
         {todo.title}
-        <DateTime />
       </span>
       <TiDeleteOutline onClick={() => taskDeleteHandler(todo._id)} />
     </li>
+        <DateTime />
     </IconContext.Provider>
   );
 }
