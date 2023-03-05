@@ -5,15 +5,24 @@ import '../style/CreateTodo.css'
 
 function CreateTodo({ taskCreateHandler }) {
   const [task, setTask] = useState("");
+  const [isDisabled, setIsDisabled] = useState(true)
 
   const onSubmit = (e) => {
     e.preventDefault();
 
+    setIsDisabled(true)
     taskCreateHandler(task);
     setTask("");
   };
 
   const onChange = (e) => {
+
+    if (e.target.value !== '') {
+      setIsDisabled(false)
+    } else {
+      setIsDisabled(true)
+    }
+ 
     setTask(e.target.value);
   };
 
@@ -27,7 +36,7 @@ function CreateTodo({ taskCreateHandler }) {
         onChange={onChange}
         placeholder="Enter text..."
       />
-      <button type="submit">Add</button>
+      <button disabled={isDisabled} type="submit">Add</button>
     </form>
     </div>
   );
